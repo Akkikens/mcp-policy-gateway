@@ -1,0 +1,20 @@
+{
+  "listen": "127.0.0.1:8080",
+  "public_url": "http://localhost:8080",
+  "issuer": "http://127.0.0.1:9000",
+  "jwks_url": "http://127.0.0.1:9000/.well-known/jwks.json",
+  "authorization_servers": ["http://127.0.0.1:9000"],
+  "required_scopes": ["mcp:tools"],
+  "scim_token_env": "SCIM_TOKEN",
+  "audit_log": "__WORK__/audit.jsonl",
+  "policy": {
+    "bundle": "__WORK__/bundle.json",
+    "trusted_keys": "__WORK__/keys/trusted_keys.json",
+    "state": "__WORK__/policy-state.json",
+    "reload_interval": "10s"
+  },
+  "upstreams": [
+    {"name": "files", "url": "http://127.0.0.1:9100/mcp", "credential": {"env": "FILES_TOKEN", "prefix": "Bearer "}},
+    {"name": "web", "url": "http://127.0.0.1:9101/mcp", "credential": {"env": "WEB_TOKEN", "prefix": "Bearer "}}
+  ]
+}

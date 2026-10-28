@@ -1,0 +1,5 @@
+/mcpgw
+/fakemcp
+*.key
+audit.jsonl
+policy-state.json
